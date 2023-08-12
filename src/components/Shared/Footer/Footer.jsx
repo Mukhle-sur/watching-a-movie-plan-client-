@@ -1,11 +1,12 @@
 import { HiPhone } from "react-icons/hi";
 import { AiFillMail } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
-
+import { BiLogoFacebook, BiLogoPinterestAlt, BiLogoTwitter } from "react-icons/bi";
+import { FiInstagram } from "react-icons/fi";
 const Footer = () => {
   return (
     <section className="bg-[#132D58]">
-      <footer className="footer p-16 justify-around text-white container mx-auto">
+      <footer className="footer p-8 md:p-16 justify-between text-white container mx-auto border-b border-[#2C446C]">
         <div>
           <span className="footer-title opacity-100 mb-5">NAVIGATE</span>
           <a className="link link-hover">Home</a>
@@ -62,7 +63,24 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <footer className="footer container mx-auto items-center p-8 md:p-16 text-white">
+        <div className="items-center grid-flow-col">
+          <p>© Copyright 2023 Nextvstream.</p>
+        </div>
+        <div className="md:inline-block">
+          <a className="link link-hover">Privacy Policy </a>
+          <a className="link link-hover md:mx-2">• Terms of Service</a>
+          <a className="link link-hover">• Cookie Policy</a>
+        </div>
+        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+          <BiLogoFacebook className="w-7 h-7 p-1  rounded-full text-[#132C56] bg-white"></BiLogoFacebook>
+          <FiInstagram className="w-7 h-7 p-1  rounded-full text-[#132C56] bg-white"></FiInstagram>
+          <BiLogoTwitter className="w-7 h-7 p-1  rounded-full text-[#132C56] bg-white"></BiLogoTwitter>
+          <BiLogoPinterestAlt className="w-7 h-7 p-1  rounded-full text-[#132C56] bg-white"></BiLogoPinterestAlt>
+        </div>
+      </footer>
     </section>
+    // 132C56
   );
 };
 
