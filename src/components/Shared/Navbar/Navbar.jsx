@@ -34,7 +34,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <section className="px-5 lg:px-12 ">
+    <section className="px-4 lg:px-12 ">
       <div className="mx-auto">
         <nav className="flex items-center justify-between py-5 ">
           <div className="flex items-center">
