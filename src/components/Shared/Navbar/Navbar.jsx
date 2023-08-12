@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { BsArrowRight, BsXLg } from "react-icons/bs";
 import "./Navbar.css";
@@ -19,23 +19,23 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li className="tracking-wide md:mx-4 text-black font-semibold ">
+      <li className="tracking-wide md:mx-4 text-black font-medium">
         <NavLink to="/blog">Blog</NavLink>
       </li>
-      <li className="tracking-wide md:mx-4 text-black font-semibold ">
+      <li className="tracking-wide md:mx-4 text-black font-medium">
         <NavLink to="/shop">Shop</NavLink>
       </li>
-      <li className="tracking-wide md:mx-4 text-black font-semibold ">
+      <li className="tracking-wide md:mx-4 text-black font-medium">
         <NavLink to="/about">About Us</NavLink>
       </li>
-      <li className="tracking-wide md:mx-4 text-black font-semibold">
+      <li className="tracking-wide md:mx-4 text-black font-medium">
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </>
   );
   return (
     <section className="px-5 lg:px-12 ">
-      <div className="container mx-auto">
+      <div className="mx-auto">
         <nav className="flex items-center justify-between py-5 ">
           <div className="flex items-center">
             <div className="relative">
@@ -54,9 +54,9 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <div className="mr-5 md:mr-0">
-              <a className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6">
+              <Link to={'/signIn'} className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6">
                 Sign In <BsArrowRight size={16}></BsArrowRight>
-              </a>
+              </Link>
             </div>
             <div onClick={() => setIsOpen(!isOpen)} className="md:hidden">
               <span>
