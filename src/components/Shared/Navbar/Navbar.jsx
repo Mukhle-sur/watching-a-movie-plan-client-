@@ -20,9 +20,6 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li className="tracking-wide md:mx-4 text-black font-medium">
-        <NavLink to="/blog">Blog</NavLink>
-      </li>
-      <li className="tracking-wide md:mx-4 text-black font-medium">
         <NavLink to="/shop">Shop</NavLink>
       </li>
       <li className="tracking-wide md:mx-4 text-black font-medium">

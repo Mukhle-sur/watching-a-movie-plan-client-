@@ -34,51 +34,31 @@ const SignUp = () => {
   const onSubmit = (data) => {
     console.log(data);
     setLoading(true);
-    // image upload
-    const imageUrl = data.image[0];
-    const formData = new FormData();
-    formData.append("image", imageUrl);
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_img_upload_key
-    }`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imageData) => {
-        const imageUrl = imageData.data.display_url;
-        createUser(data.email, data.password)
-          .then((result) => {
-            console.log(result);
-            updateUserProfile(data.name, imageUrl).then(() => {
-              const saveUser = {
-                name: data.name,
-                email: data.email,
-                role: "Student",
-                image: imageUrl,
-              };
-              fetch("https://yoga-meditation-server-ruby.vercel.app/users", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(saveUser),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  if (data.insertedId) {
-                    reset();
-                    toast.success("SignUp Successfully");
-                    navigate("/");
-                  }
-                });
-            });
+    createUser(data.email, data.password)
+      .then((result) => {
+        console.log(result);
+        updateUserProfile(data.name).then(() => {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            role: "user",
+          };
+          fetch("https://yoga-meditation-server-ruby.vercel.app/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
           })
-          .catch((error) => {
-            toast.error(error.message);
-            setLoading(false);
-          });
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                toast.success("SignUp Successfully");
+                navigate("/");
+              }
+            });
+        });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -147,21 +127,6 @@ const SignUp = () => {
               />
               {errors.name?.type === "required" && (
                 <p className="text-red-600">Password is required</p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="image" className="block mb-2 text-sm">
-                Select Image:
-              </label>
-              <input
-                {...register("image", { required: true })}
-                type="file"
-                id="image"
-                name="image"
-                accept="image/*"
-              />
-              {errors.image?.type === "required" && (
-                <p className="text-red-600">image is required</p>
               )}
             </div>
             <div>

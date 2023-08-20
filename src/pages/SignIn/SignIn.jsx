@@ -24,7 +24,7 @@ const SignIn = () => {
   const onSubmit = (data) => {
     signIn(data.email, data.password)
       .then((result) => {
-        toast.success("SignUp Successful");
+        toast.success("SignIn Successful");
         console.log(result.user);
         navigate(from, { replace: true });
       })
@@ -55,7 +55,7 @@ const SignIn = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {
-              toast.success("SignUp Successfully");
+              toast.success("SignIn Successfully");
             }
             navigate(from, { replace: true });
           });

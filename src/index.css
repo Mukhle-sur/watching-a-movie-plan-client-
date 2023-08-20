@@ -6,11 +6,23 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.my-btn{
+.my-btn {
   border-radius: 5px;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  background-image: linear-gradient(151deg, 38%,#ff5c26 100%);
+  background-image: linear-gradient(151deg, 38%, #ff5c26 100%);
   padding: 12px 24px;
+}
+
+.active {
+  color: #ff5c26;
+}
+
+.box{
+  color: #ff8057;
+  transition: .3s ease-in-out;
+}
+.time{
+  transition: 1s ease-in-out;
 }
