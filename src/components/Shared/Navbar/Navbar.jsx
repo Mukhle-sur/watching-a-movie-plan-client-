@@ -51,7 +51,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <div className="mr-5 md:mr-0">
-              <Link to={'/signIn'} className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6">
+              <Link to={'/signIn'} className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6 hover-btn">
                 Sign In <BsArrowRight size={16}></BsArrowRight>
               </Link>
             </div>

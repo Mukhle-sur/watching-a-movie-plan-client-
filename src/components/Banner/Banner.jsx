@@ -34,15 +34,15 @@ const Banner = () => {
             <button>
               <Link
                 to={"/about"}
-                className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6 uppercase"
+                className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6 uppercase hover-btn"
               >
                 About Us <BsArrowRight size={16}></BsArrowRight>
               </Link>
             </button>
             <button className="ml-5">
               <Link
-                to={"/getStarted"}
-                className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6 uppercase"
+                to={"/shops"}
+                className="flex items-center gap-1 text-white text-sm font-semibold md:font-bold bg-gradient-to-r from-[#FF8057] to-[#ff5c26] rounded-md py-2 md:py-3 px-4 md:px-6 uppercase hover-btn"
               >
                 Get Started <BsArrowRight size={16}></BsArrowRight>
               </Link>
