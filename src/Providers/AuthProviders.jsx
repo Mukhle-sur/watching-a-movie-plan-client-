@@ -10,10 +10,10 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-
+import axios from "axios";
 // import axios from "axios";
-import app from "../firebase/firebase.config";
 
+import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 
@@ -59,19 +59,18 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("current user", currentUser);
-      // post jwt
-    //   if (currentUser) {
-    //     axios
-    //       .post("https://yoga-meditation-server-ruby.vercel.app/jwt", {
-    //         email: currentUser?.email,
-    //       })
-    //       .then((data) => {
-    //         localStorage.setItem("access-token", data.data.token);
-    //       });
-    //   } else {
-    //     localStorage.removeItem("access-token");
-    //   }
+      console.log("current user :", currentUser);
+      // 2nd step : jwt-post-on-back-end
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser?.email })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+      setLoading(false);
       setLoading(false);
     });
     return () => {

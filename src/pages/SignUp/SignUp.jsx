@@ -43,7 +43,7 @@ const SignUp = () => {
             email: data.email,
             role: "user",
           };
-          fetch("https://yoga-meditation-server-ruby.vercel.app/users", {
+          fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

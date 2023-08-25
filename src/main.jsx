@@ -5,13 +5,25 @@ import { RouterProvider } from "react-router-dom";
 import router from "./Routes/Routes";
 import AuthProvider from "./Providers/AuthProviders";
 import { Toaster } from "react-hot-toast";
-import '@smastrom/react-rating/style.css'
+import "@smastrom/react-rating/style.css";
+import { HelmetProvider } from "react-helmet-async";
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <Toaster></Toaster>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+        <Toaster></Toaster>
+      </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>
 );

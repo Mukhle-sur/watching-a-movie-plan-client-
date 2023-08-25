@@ -7,6 +7,11 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Shop from "../pages/Shop/Shop";
 import AnotherShop from "../pages/AnotherShop/AnotherShop";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import UserHome from "../Layout/Dashboard/UserHome/UserHome";
+import AdminHome from "../Layout/Dashboard/AdminHome/AdminHome";
+import AllUser from "../Layout/Dashboard/AllUser/AllUser";
+import AdminUser from "../Layout/Dashboard/AdminUser/AdminUser";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +45,30 @@ const router = createBrowserRouter([
       {
         path: "/shops",
         element: <AnotherShop></AnotherShop>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+
+      // admin-route
+      {
+        path: "adminHome",
+        element: <AdminHome></AdminHome>,
+      },
+      {
+        path: "allUser",
+        element: <AllUser></AllUser>,
+      },
+      {
+        path: "adminUser",
+        element: <AdminUser></AdminUser>,
       },
     ],
   },
