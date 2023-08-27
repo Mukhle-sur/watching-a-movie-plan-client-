@@ -1,9 +1,11 @@
 import { BsArrowRight } from "react-icons/bs";
-import {useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import cardBg from "../../assets/Molti-background.jpg";
-import useAuth from "../../Hooks/UseAuth";
 import { toast } from "react-hot-toast";
 import Swal from "sweetalert2";
+import useShopCart from "../../Hooks/useShopCart";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 let bannerBackground = {
   backgroundImage: `url(${cardBg})`,
@@ -11,34 +13,38 @@ let bannerBackground = {
   backgroundSize: "cover",
 };
 
-const AnotherShopCart = ({ singlePack }) => {
-  const { name, price, date, _id } = singlePack;
-  const { user } = useAuth;
+const AnotherShopCart = ({ item }) => {
+  const { name, price, date, _id } = item;
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [, refetch] = useShopCart();
 
-  const handleAddToCart = (singlePack) => {
-    console.log(singlePack);
+  const handleAddToCart = () => {
+    const addPackage = {
+      addShopPack: _id,
+      price,
+      email: user?.email,
+      name,
+    };
     if (user) {
-      const cartItem = { shopId: _id, price, email: user?.email };
-      console.log(cartItem);
-      fetch("http://localhost:5000/carts", {
+      fetch("http://localhost:5000/userAddPackage", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(cartItem),
+        body: JSON.stringify(addPackage),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.insertedId) {
-            toast.success("this Package is added");
+            toast.success("Your Package is Added to Cart");
+            refetch();
           }
         });
     } else {
       Swal.fire({
-        title: "Add to This Package ? Please Login",
+        title: "Buy This Package ? Please Login",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -62,7 +68,7 @@ const AnotherShopCart = ({ singlePack }) => {
         <p className="text-[50px] font-extrabold">$ {price}</p>
         <p className="text-base font-medium">{date}</p>
         <button
-          onClick={() => handleAddToCart(singlePack)}
+          onClick={() => handleAddToCart(item)}
           className="inline-flex items-center gap-1 text-[#ff8057] text-sm font-semibold md:font-bold bg-white rounded-md py-2 md:py-3 px-4 md:px-6 hover-btn mt-3 shadow-[0px 15px 30px -9px rgba(0,0,0,0.3)]"
         >
           Add To Cart <BsArrowRight size={16}></BsArrowRight>

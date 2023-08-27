@@ -96,7 +96,7 @@ const ShopCart = ({ item }) => {
         <p className="w-32">
           <Rating value={rating} readOnly></Rating>
         </p>
-        <h4 className="text-lg font-semibold"> {price}</h4>
+        <h4 className="text-lg font-semibold">${price}</h4>
         <div className="card-actions justify-end">
           <button
             onClick={() => handleAddToCart(item)}

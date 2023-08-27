@@ -12,6 +12,8 @@ import UserHome from "../Layout/Dashboard/UserHome/UserHome";
 import AdminHome from "../Layout/Dashboard/AdminHome/AdminHome";
 import AllUser from "../Layout/Dashboard/AllUser/AllUser";
 import AdminUser from "../Layout/Dashboard/AdminUser/AdminUser";
+import UserSelectPack from "../Layout/Dashboard/UserSelectPack/UserSelectPack";
+import Payment from "../Layout/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,18 @@ const router = createBrowserRouter([
         path: "userHome",
         element: <UserHome></UserHome>,
       },
+      {
+        path: "selectedPackage",
+        element: <UserSelectPack></UserSelectPack>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+      },
+      // {
+      //   path: "paymentHistory",
+      //   element: <PaymentHistory></PaymentHistory>,
+      // },
 
       // admin-route
       {

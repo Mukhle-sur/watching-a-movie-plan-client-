@@ -1,0 +1,23 @@
+[
+  {
+    "title": "AYLTV",
+    "description": "Enjoy AYLTV for a year: Access live channels, sports, movies, and shows. Elevate entertainment with HD quality.",
+    "rating": 3,
+    "price": 19.99,
+    "image": "https://i.ibb.co/vc2TdpV/Alytv.jpg"
+  },
+  {
+    "title": "RK TV",
+    "description": "Experience RK TV for a year. Stream live channels, sports, movies, shows with HD quality.",
+    "rating": 4,
+    "price": 39.99,
+    "image": "https://i.ibb.co/jDrM9gb/RKTV.jpg"
+  },
+  {
+    "title": "Cflix",
+    "description": "1-year Cflix: Stream live channels, movies, and more with HD quality. Elevate your entertainment across devices.",
+    "rating": 4.5,
+    "price": 49.99,
+    "image": "https://i.ibb.co/DVm2R4Y/Cflix.png"
+  }
+]

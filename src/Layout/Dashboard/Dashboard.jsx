@@ -1,8 +1,6 @@
 import {
-  FaBars,
   FaBook,
   FaCalendarAlt,
-  FaCalendarPlus,
   FaHome,
   FaRegEnvelope,
   FaShopify,
@@ -34,7 +32,7 @@ const Dashboard = () => {
               htmlFor="my-drawer-2"
               className="btn btn-primary drawer-button lg:hidden"
             >
-              Open drawer
+              Open Your Dashboard
             </label>
           </div>
           <div className="drawer-side ">
@@ -95,10 +93,18 @@ const Dashboard = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/dashboard/reservation"
+                      to="/dashboard/selectedPackage"
                       className={({ isActive }) => (isActive ? "text" : "")}
                     >
-                      <FaCalendarAlt></FaCalendarAlt> RESERVATION
+                      <FaCalendarAlt></FaCalendarAlt> SELECTED PACKAGE
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/payHistory"
+                      className={({ isActive }) => (isActive ? "text" : "")}
+                    >
+                      <FaWallet></FaWallet> My Package 
                     </NavLink>
                   </li>
                   <li>
@@ -117,14 +123,6 @@ const Dashboard = () => {
                       <FaStarOfDavid></FaStarOfDavid> ADD REVIEW
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink
-                      to="/dashboard/myBooking"
-                      className={({ isActive }) => (isActive ? "text" : "")}
-                    >
-                      <FaCalendarPlus></FaCalendarPlus> MY BOOKING
-                    </NavLink>
-                  </li>
                 </>
               )}
 
@@ -138,14 +136,7 @@ const Dashboard = () => {
                   <FaHome></FaHome> Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/menu"
-                  className={({ isActive }) => (isActive ? "text" : "")}
-                >
-                  <FaBars></FaBars> Menu
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink
                   to="/shop/salad"
@@ -159,7 +150,7 @@ const Dashboard = () => {
                   to="/contact"
                   className={({ isActive }) => (isActive ? "text" : "")}
                 >
-                  <FaRegEnvelope></FaRegEnvelope> Contact
+                  <FaRegEnvelope></FaRegEnvelope> Contact us
                 </NavLink>
               </li>
             </ul>

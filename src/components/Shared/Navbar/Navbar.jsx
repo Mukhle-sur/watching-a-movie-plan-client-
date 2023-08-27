@@ -65,7 +65,7 @@ const Navbar = () => {
         ""
       ) : user ? (
         <li>
-          <Link to="dashboard/myCart" className="flex justify-between">
+          <Link to="dashboard/selectedPackage" className="flex justify-between">
             <FaShoppingCart></FaShoppingCart>
             <span className="badge badge-secondary ml-2">
               +{addPackage?.length}

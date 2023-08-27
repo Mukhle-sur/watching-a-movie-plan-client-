@@ -42,10 +42,10 @@ const AnotherShop = () => {
               <div>
                 <p className="m-btn">Our Monthly Pack</p>
               </div>
-              {shopPacks.map((singlePack) => (
+              {shopPacks.map((item) => (
                 <AnotherShopCart
-                  key={singlePack._id}
-                  singlePack={singlePack}
+                  key={item._id}
+                  item={item}
                 ></AnotherShopCart>
               ))}
             </div>
